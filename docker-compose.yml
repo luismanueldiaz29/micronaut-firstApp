@@ -1,1 +1,36 @@
 version: '3.1'
+
+services:
+#database engine service
+  docker-mysql:
+    container_name: docker-mysql
+    image: mysql:latest
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=db
+      - MYSQL_PASSWORD=root
+    # ports:
+    #   # <Port exposed> : < MySQL Port running inside container>
+    #   - 33062:3306
+
+#database admin service
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    depends_on: 
+      - docker-mysql
+    ports:
+      - 9090:8080
+
+#First app backend service
+  firstapp-back:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: firstapp-back      
+    depends_on:     
+      - docker-mysql
+    ports:
+      - 8097:8097
