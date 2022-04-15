@@ -1,0 +1,9 @@
+micronaut:
+  application:
+    name: firtsapp
+  server:
+    port: 8097
+netty:
+  default:
+    allocator:
+      max-order: 3
