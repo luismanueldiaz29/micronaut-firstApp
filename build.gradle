@@ -29,6 +29,9 @@ dependencies {
     testImplementation("org.testcontainers:mysql")
     testImplementation("org.testcontainers:testcontainers")
     compileOnly("org.graalvm.nativeimage:svm")
+
+    implementation("io.swagger.core.v3:swagger-annotations")
+    annotationProcessor("io.micronaut.openapi:micronaut-openapi")
 }
 
 

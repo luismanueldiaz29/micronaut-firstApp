@@ -25,9 +25,11 @@ import firtsapp.models.GenreRepository;
 import java.net.URI;
 import java.util.List;
 import java.util.Optional;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @ExecuteOn(TaskExecutors.IO)
-@Controller("/genres")
+@Controller("/api/genres")
+@Tag(name = "Genre")
 public class GenreController {
 
     protected final GenreRepository genreRepository;
